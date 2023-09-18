@@ -4,7 +4,7 @@ import { NextRequest } from "next/server";
 
 
 export async function GET(request) {
-  const code = NextRequest.query.code;
+  const code = request.nextUrl.searchParams.code
   console.log('code is ' + code)
 
   if (!code) {
