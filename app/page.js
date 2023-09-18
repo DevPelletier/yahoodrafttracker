@@ -18,7 +18,7 @@ export default function Home() {
   const accessCode = searchParams.get('code')
   console.log(accessCode)
 
-  const hostname = "https://yahoodrafttracker.vercel.app"
+  const hostName = "https://yahoodrafttracker.vercel.app"
   
   const client_id = "dj0yJmk9V0hLeGZhdHUzdXVBJmQ9WVdrOVRsVm9aSEYzY3pRbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFj";
   const redirect_uri = `${hostname}/test`;
