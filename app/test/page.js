@@ -7,8 +7,8 @@ const qs = require('qs');
 const CONSUMER_KEY = "dj0yJmk9V0hLeGZhdHUzdXVBJmQ9WVdrOVRsVm9aSEYzY3pRbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFj";
 const CONSUMER_SECRET = "edd7a1fc57aa1fbeb1d290bad943a2ee48dae573";
 const AUTH_HEADER = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`, `binary`).toString(`base64`);
-
-const hosturl = "remarkably-still-doberman.ngrok-free.app"
+const api_url = "https://api.login.yahoo.com/oauth2/get_token"
+const hosturl = "https://yahoodrafttracker.vercel.app"
 const redirect_uri = `${hosturl}/test`;
 
 
@@ -23,7 +23,7 @@ export default function Page() {
     }
 
     const getYahooAccessToken = async (auth_code) => {
-        const response = await fetch('https://api.login.yahoo.com/oauth2/get_token', {
+        const response = await fetch(api_url, {
             method: 'post',
             headers: {
                 'Authorization': `Basic ${AUTH_HEADER}`,
