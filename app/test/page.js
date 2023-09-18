@@ -42,7 +42,7 @@ export default function Page() {
             timeout: 1000,
         }).catch((err) => {
             console.error(`Error in getInitialAuthorization(): ${err}`);
-            router.push('/login-error');
+            // router.push('/login-error');
         });
 
         const data = await response.json().then(data => {
@@ -50,6 +50,7 @@ export default function Page() {
 
             // if Auth fails
             if (data.error || data === null) {
+                console.error(`Error in getInitialAuthorization(): ${err}`);
                 // router.push('/login_error');
             } else {
                 // Auth Succeeded!
