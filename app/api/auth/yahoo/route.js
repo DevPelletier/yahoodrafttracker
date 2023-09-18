@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
+const correctDomain = "https://yahoodrafttracker.vercel.app"
 const client_id = "dj0yJmk9V0hLeGZhdHUzdXVBJmQ9WVdrOVRsVm9aSEYzY3pRbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFj"
-const redirect_uri = "http://localhost:3000/api/auth/yahoo/callback"
+const redirect_uri = `${correctDomain}/api/auth/yahoo/callback`
+
+console.log(process.env.CLIENT_ID)
+console.log(process.env.REDIRECT_URI)
 
 // Handles GET requests to /api
 export async function GET(request) {

@@ -26,7 +26,7 @@ export default function Home() {
   // const api_url = `https://api.login.yahoo.com/oauth2/request_auth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&language=en-us`;
   const accessTokenURL = "https://api.login.yahoo.com/oauth2/get_token"
 
-  const api_url = "localhost:3000/api/auth/yahoo";
+  const api_url = `${hostName}/api/auth/yahoo`;
 
   
 
