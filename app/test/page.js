@@ -18,17 +18,61 @@ export default function Page() {
 
     const saveYahooAuthCode = async () => {
         const auth_code = searchParams.get('code')
-        localStorage.setItem("yAuthCode", auth_code);
+        // localStorage.setItem("yAuthCode", auth_code);
         return auth_code;
     }
 
-
+    const getYahooAccessToken = async () => {
+    
+        const response = await fetch(api_url, {
+            method: 'post',
+            headers: {
+                'Authorization': `Basic ${AUTH_HEADER}`,
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST'
+            },
+            body: qs.stringify({
+                grant_type: 'authorization_code',
+                client_id: CONSUMER_KEY,
+                client_secret: CONSUMER_SECRET,
+                redirect_uri: redirect_uri,
+                code: auth_code
+            }),
+            timeout: 1000,
+        }).catch((err) => {
+            console.error(`Error in getInitialAuthorization(): ${err}`);
+            // router.push('/login-error');
+        });
+    
+        const data = await response.json().then(data => {
+            console.log(data);
+    
+            // if Auth fails
+            if (data.error || data === null) {
+                console.error(`Error in getInitialAuthorization(): ${err}`);
+                // router.push('/login_error');
+            } else {
+                // Auth Succeeded!
+                localStorage.setItem("yAccessToken", data.access_token);
+                localStorage.setItem("yRefreshToken", data.refresh_token);
+                localStorage.setItem("yTokenType", data.token_type);
+                localStorage.setItem("yTokenExpiry", data.expires_in);
+    
+                console.log('Auth success!')
+    
+                router.push('/')
+            }
+        });
+      }
+    
 
 
 
     saveYahooAuthCode()
         .then(auth_code => {
-            // getYahooAccessToken(auth_code);
+            getYahooAccessToken(auth_code);
             router.push('/')
         });
 
