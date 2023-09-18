@@ -9,7 +9,7 @@ const CONSUMER_SECRET = "edd7a1fc57aa1fbeb1d290bad943a2ee48dae573";
 const AUTH_HEADER = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`, `binary`).toString(`base64`);
 
 const hosturl = "https://yahoodrafttracker.vercel.app"
-const redirect_uri = `${hosturl}/test2`;
+const redirect_uri = `${hosturl}/test`;
 
 
 export default function Page() {
@@ -58,7 +58,7 @@ export default function Page() {
                 localStorage.setItem("yTokenType", data.token_type);
                 localStorage.setItem("yTokenExpiry", data.expires_in);
     
-                router.push('/test2')
+                router.push('/')
             }
         });
     }
