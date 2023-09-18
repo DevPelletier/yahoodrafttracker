@@ -20,8 +20,7 @@ export async function GET(request) {
     // scope: '<Required scopes>'
   });
 
-  const thisUrl = new URL(`${baseUrl}?${queryParams}`, request.url);
-  console.log(thisUrl.href)
+  const thisUrl = `${baseUrl}?${queryParams}`;
   return NextResponse.redirect(thisUrl);
 }
 // Handles POST requests to /api
