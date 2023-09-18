@@ -5,6 +5,8 @@ import Link from "next/link";
 
 
 import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+const qs = require('qs');
 
 const CONSUMER_KEY = "dj0yJmk9V0hLeGZhdHUzdXVBJmQ9WVdrOVRsVm9aSEYzY3pRbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFj";
 const CONSUMER_SECRET = "edd7a1fc57aa1fbeb1d290bad943a2ee48dae573";
