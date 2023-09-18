@@ -32,6 +32,7 @@ export async function GET(request) {
     return NextResponse.status(200).json({ access_token, refresh_token, token_type, expires_in });
 
   } catch (error) {
+    console.log('error!!')
     return NextResponse.status(500).send('Error fetching access token');
   }
 }

@@ -18,7 +18,7 @@ export default function Home() {
   const accessCode = searchParams.get('code')
   console.log(accessCode)
 
-  const hostName = process.env.HOST_NAME
+  const hostName = 'http://localhost:3000' // process.env.HOST_NAME;
   // const hostName = "http://localhost:3000"
 
   
