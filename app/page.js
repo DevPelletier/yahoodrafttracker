@@ -21,7 +21,7 @@ export default function Home() {
   const hostName = "https://yahoodrafttracker.vercel.app"
   
   const client_id = "dj0yJmk9V0hLeGZhdHUzdXVBJmQ9WVdrOVRsVm9aSEYzY3pRbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFj";
-  const redirect_uri = `${hostname}/test`;
+  // const redirect_uri = `${hostname}/test`;
   // const redirect_uri = "localhost:3000"; // as a backup if ngrok stops working for whatever dumb reason lol
   // const api_url = `https://api.login.yahoo.com/oauth2/request_auth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&language=en-us`;
   const accessTokenURL = "https://api.login.yahoo.com/oauth2/get_token"
