@@ -4,7 +4,7 @@ import { NextRequest } from "next/server";
 
 
 export async function GET(request) {
-  const code = request.nextUrl.searchParams.code
+  const code = request.nextUrl.searchParams.get('code')
   console.log('code is ' + code)
 
   if (!code) {
@@ -29,10 +29,10 @@ export async function GET(request) {
     // Save the access_token in a session/cookie or use it directly.
     // This example just sends it as a response (not recommended for production).
     console.log({ access_token, refresh_token, token_type, expires_in })
-    NextResponse.status(200).json({ access_token, refresh_token, token_type, expires_in });
+    return NextResponse.status(200).json({ access_token, refresh_token, token_type, expires_in });
 
   } catch (error) {
-    NextResponse.status(500).send('Error fetching access token');
+    return NextResponse.status(500).send('Error fetching access token');
   }
 }
 
