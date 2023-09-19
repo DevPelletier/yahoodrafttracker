@@ -1,10 +1,6 @@
-'use client'
-
 import styles from './page.module.css'
 import Link from "next/link";
-
-
-import { useSearchParams } from 'next/navigation'
+import { cookies } from 'next/headers'
 import { useRouter } from 'next/navigation';
 const qs = require('qs');
 
@@ -14,11 +10,7 @@ const AUTH_HEADER = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`, `binary`).
 
 export default function Home() {
   
-  const searchParams = useSearchParams()
-  const accessCode = searchParams.get('code')
-  console.log(accessCode)
-
-  const hostName = 'http://localhost:3000' // process.env.HOST_NAME;
+  const hostName = process.env.HOST_NAME;
   // const hostName = "http://localhost:3000"
 
   
@@ -28,7 +20,15 @@ export default function Home() {
   // const api_url = `https://api.login.yahoo.com/oauth2/request_auth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&language=en-us`;
   const accessTokenURL = "https://api.login.yahoo.com/oauth2/get_token"
 
-  const api_url = `${hostName}/api/auth/yahoo`;
+  const api_url = `/api/auth/yahoo`;
+
+  // function checkforCookies() {
+  //   const cookieStore = cookies()
+  //   const cookies = cookieStore.get('yAccessToken')
+  //   console.log(cookies)
+  // }
+  // checkforCookies();
+
 
   
 
@@ -47,7 +47,11 @@ return (
             <button>Auth w/ Yahoo!</button>
         </Link>
 
+        {/* <button onClick={checkforCookies}>Check for Cookies</button> */}
+
       </div>
     </main>
   )
+
+  checkforCookies();
 }
