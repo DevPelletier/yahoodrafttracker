@@ -6,7 +6,7 @@ import axios from 'axios';
 const convert = require("xml-js");
 
 const api_url = `/api/auth/yahoo`;
-const CORSProxy = "https://secure-island-75927-08a53ed7a26c.herokuapp.com/";
+const CORSProxy = "https://pacific-spire-15074-e9be3e6cda01.herokuapp.com/";
 
 export default function Home() {
 

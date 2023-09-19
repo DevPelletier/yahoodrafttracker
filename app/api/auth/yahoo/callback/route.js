@@ -19,7 +19,7 @@ export async function GET(request) {
     console.log(process.env.CLIENT_ID);
     console.log(process.env.CLIENT_SECRET);
     console.log(process.env.REDIRECT_URI);
-    const tokenResponse = await axios.post('https://api.login.yahoo.com/oauth2/get_token', {
+    const tokenResponse = await axios.post(`https://api.login.yahoo.com/oauth2/get_token`, {
       client_id: process.env.CLIENT_ID,
       client_secret: process.env.CLIENT_SECRET,
       redirect_uri: process.env.REDIRECT_URI,
