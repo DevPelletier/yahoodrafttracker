@@ -6,6 +6,7 @@ import axios from 'axios';
 const convert = require("xml-js");
 
 const api_url = `/api/auth/yahoo`;
+const CORSProxy = "https://secure-island-75927-08a53ed7a26c.herokuapp.com/";
 
 export default function Home() {
 
@@ -19,7 +20,7 @@ export default function Home() {
   const leagueSync = async () => {
     const access_token = await getAccessToken();
     const yahooQuery = "users;use_login=1/games/leagues"
-    const api_url = `https://fantasysports.yahooapis.com/fantasy/v2/${yahooQuery}?access_token=${access_token}`
+    const api_url = `${CORSProxy}https://fantasysports.yahooapis.com/fantasy/v2/${yahooQuery}?access_token=${access_token}`
 
     axios.get(api_url).then(res => {
       console.log('Received Y! League Data');
