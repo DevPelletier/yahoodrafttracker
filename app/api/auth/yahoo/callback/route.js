@@ -44,7 +44,7 @@ export async function GET(request) {
     // This example sends the token as a JSON response (not recommended for production).
     console.log('success?')
     console.log(process.env.HOST_NAME)
-    return NextResponse.redirect('http://localhost:3000')
+    return NextResponse.redirect(process.env.HOST_NAME)
 
   } catch (error) {
     console.log('500 error')
